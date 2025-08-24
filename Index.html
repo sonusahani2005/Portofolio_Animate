@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Portfolio</title>
+    <link rel="stylesheet" href="Style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <a href="#about" class="active">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Hero -->
+    <header>
+      <h1>Hello, I'm <span style="color: #00c6ff">Your Name</span></h1>
+      <p>Web Developer | Designer | Open-Source Enthusiast</p>
+      <div class="typing">I build responsive websites.</div>
+    </header>
+
+    <!-- About -->
+    <section id="about" class="about">
+      <h2>About Me</h2>
+      <p>
+        I am a passionate web developer skilled in HTML, CSS, and JavaScript. I
+        love building beautiful websites and contributing to open-source.
+      </p>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects-container">
+        <div class="card">
+          <h3>Project 1</h3>
+          <p>A short description of your project goes here.</p>
+        </div>
+        <div class="card">
+          <h3>Project 2</h3>
+          <p>A short description of your project goes here.</p>
+        </div>
+        <div class="card">
+          <h3>Project 3</h3>
+          <p>A short description of your project goes here.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="4" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2025 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Active section highlight in navbar
+      const sections = document.querySelectorAll("section");
+      const navLinks = document.querySelectorAll("nav a");
+
+      window.onscroll = () => {
+        let current = "";
+        sections.forEach((sec) => {
+          const top = window.scrollY;
+          if (top >= sec.offsetTop - 150) {
+            current = sec.getAttribute("id");
+          }
+        });
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+          }
+        });
+      };
+    </script>
+  </body>
+</html>
